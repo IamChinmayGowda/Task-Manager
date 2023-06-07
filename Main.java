@@ -11,7 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
-        final String pathName = "/home/omkar/Files/";
+        final String pathName = "/Users/chinmaygowda/Desktop/JavaPraticals/src";
 
 
         System.out.println("---------------Welcome to TaskManager---------------");
