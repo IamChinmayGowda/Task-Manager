@@ -1,17 +1,40 @@
-import java.io.*;
+package com.uttara.taskmanager;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
 public class Main {
+		private static final Logger logger = Logger.getLogger(Main.class.getName));
+		private static FileHandler fileHandler;
+		
+		static {
+			try {
+				// Set up file handler for logging
+	            fileHandler = new FileHandler("log.txt", true);
+	            logger.addHandler(fileHandler);
+	            SimpleFormatter formatter = new SimpleFormatter();
+	            fileHandler.setFormatter(formatter);
+	        } catch (IOException e) {
+	            e.printStackTrace();	
+			}
+		}
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Scanner sc = new Scanner(System.in);
 
 
-        final String pathName = "/Users/chinmaygowda/Desktop/JavaPraticals/src";
+        final String pathName = "/home/omkar/Files/";
 
 
         System.out.println("---------------Welcome to TaskManager---------------");
@@ -26,6 +49,7 @@ public class Main {
                 ch = sc.nextInt();
             } catch (InputMismatchException m) {
                 sc.nextLine();
+                logger.log(Level.WARNING, "Only Integer Input is allowed");
                 System.out.println("Only Integer Input is allowed");
             }
 
