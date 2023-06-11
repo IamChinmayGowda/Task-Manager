@@ -14,7 +14,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
 
 public class Main {
-		private static final Logger logger = Logger.getLogger(Main.class.getName));
+		private static final Logger logger = Logger.getLogger(Main.class.getName());
 		private static FileHandler fileHandler;
 		
 		static {
